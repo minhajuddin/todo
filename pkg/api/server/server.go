@@ -7,8 +7,10 @@ import (
 
 func Start(addr string) {
 	r := gin.Default()
-
-	r.GET("/tasks", handlers.ListTasks)
-
+	WireUpRoutes(r)
 	r.Run(addr)
+}
+
+func WireUpRoutes(r *gin.Engine) {
+	r.GET("/tasks", handlers.ListTasks)
 }
